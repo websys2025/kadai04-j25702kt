@@ -48,7 +48,9 @@
                         console.log("商品番号: "+this.id+", 商品名: "+this.name+"を購入します。");
                         // 課題4-2. ここにコードを書く
                         // 購入による商品の在庫削減処理
-                        
+                        this.stock--; 
+                        console.log("残りは" + this.stock + "個です。");
+                        // 在庫表示を更新
                         // 課題4-3. ここにコードを書く
                         // 在庫用のエレメントを抽出し、HTML内の個数を更新
                     } else console.log(this.name+"は商品の在庫がないため購入できません。");
@@ -68,6 +70,16 @@
                 item_list[i] = new Item(items[i].name, items[i].price, items[i].stock);
             }// 商品オブジェクトの生成
             // 課題4-2. ここにコードを書く
+            for (let i = 0; i < item_list.length; i++) {
+                itemArea.innerHTML += `
+                    <tr>
+                        <td>${item_list[i].name}</td>
+                        <td>${item_list[i].price}円</td>
+                        <td id="stock${item_list[i].id}">${item_list[i].stock}個</td>
+                        <td><button id="button${item_list[i].id}">購入</button></td>
+                    </tr>
+             `;
+            }
             // 商品表の作成
 
             // クリックイベント時の購入処理の設定
@@ -79,7 +91,11 @@
                 //}
             }
             Item.showItemList(item_list);
-
+            item_list[1].buyItem();
+            item_list[1].buyItem();
+            item_list[3].buyItem();
+            item_list[4].buyItem();
+            item_list[4].buyItem(); 
         </script>
     </body>
 </html>
