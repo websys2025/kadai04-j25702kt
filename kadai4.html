@@ -54,7 +54,7 @@
                         // 課題4-3. ここにコードを書く
                         // 在庫用のエレメントを抽出し、HTML内の個数を更新
                         const stockHTML = document.getElementById("stock" + this.id);
-                        stockHTML.textContent = this.stock;
+                        stockHTML.textContent = this.stock + "個";
                     } else console.log(this.name+"は商品の在庫がないため購入できません。");
                 }
             } // End of Item class
